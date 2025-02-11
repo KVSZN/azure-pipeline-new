@@ -1,9 +1,4 @@
-pool:
-  name: "Azure Pipelines"  # Pool name (can also be custom)
-  demands:
-    - agent.name -equals Hosted Agent
-
- 
+lockBehavior: sequential
 steps:
   - task: SendHTTPRequest@1
     displayName: Trigger Argo Workflow
