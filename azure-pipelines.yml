@@ -1,4 +1,4 @@
-lockBehavior: 'runLatest'
+
  
 steps:
   - task: SendHTTPRequest@1
