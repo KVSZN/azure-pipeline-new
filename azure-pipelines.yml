@@ -1,0 +1,24 @@
+lockBehavior: 'runLatest'
+ 
+steps:
+  - task: SendHTTPRequest@1
+    displayName: Trigger Argo Workflow
+    inputs:
+      method: POST
+      uri: https://argo.qa.diamond.int.bayer.com:443
+      headers: |
+        {
+          "Authorization":"Bearer v2:eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiemlwIjoiREVGIn0.mpt83dwg8xKPktJ9tlGGn4S4BjW9LZ7miEr_FdSiGOTzdylpLHxviZ7EohjXxQqyWMJvJ_QUj8ibPYaeZl3-FPYEyezrSfQpgFgbezWEOwFkDV6BTkpv0hLWvgnOCsMejJUgDFhqsJtb7jTt6sokJ_qDQJ8giOn_d1E5Xu7PgIGBxSumTFk1Zzh125KLUjKfemwea_tFAlVS5P6uimCJTjzFPAetNH-N3FqCZFJM0rKUQYhhuGVYo-GVWmkx_-3zNbL51YnuDSa_3TgqsIglpJ0w5ZDttuhm4CGp9lcdw5awUaM9jgdjbNYyKp0ZSbl_7uKAe3YJDQl4lptrpysXLw.3x_qhbhjtji0t89d.zHkYIW4N4qj0whe-AxzXV1AjBjpmDSuOwj7Ww-75A1Zl7Iae2PMXPib8qHZgHBj8p-uQyi-86v0b6st3KlxT23nRAmavBIG5xLPbT67CoCjEvaxzA_psmHMNKvgUblTOfFLctSeM_AJyCzJI6IGG57xnhNs2vaSczcf9.22LzryPrM2o-I3VamAiphw",
+          "Content-Type":"application/json"
+        }
+      body: |
+        {
+          "workflow": {
+            "metadata": {
+              "name":"dave-to-cdb-integration"
+            },
+            "spec": {
+              "templates": [...]
+            }
+          }
+        }
