@@ -1,4 +1,24 @@
-lockBehavior: sequential
+# Set concurrency to avoid parallel runs
+pr:
+  branches:
+    include:
+      - "*"
+
+trigger:
+  branches:
+    include:
+      - "*"
+
+resources: []
+
+stages:
+  - stage: SequentialTrigger
+    jobs:
+      - job: SequentialJob
+        timeoutInMinutes: 10
+        cancelTimeoutInMinutes: 1
+
+
 steps:
   - task: SendHTTPRequest@1
     displayName: Trigger Argo Workflow
